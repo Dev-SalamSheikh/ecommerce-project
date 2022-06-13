@@ -1,9 +1,14 @@
-import React from "react";
+import Modal from "../Modal/Modal";
+import React, { useState } from "react";
 import "./Hero.css";
 
 const Hero = () => {
+  const [modal, setModal] = useState(false);
+  const handleModalPopup = () => {
+    setModal(!modal);
+  };
   return (
-    <div className="hero__container">
+    <div className="hero__container" onClick={handleModalPopup}>
       <div class="item1">
         <div className="heading">
           <h6>Asus</h6>
@@ -102,6 +107,7 @@ const Hero = () => {
           Nice style
         </p>
       </div>
+      {modal && <Modal />}
     </div>
   );
 };
